@@ -8,7 +8,7 @@ const app=express()
 // app.get('route',requesthandler)
 
 app.get('/',function(req,res){
-    res.send("hello next");
+    res.send("hello next<br><a href='http://localhost:3050/next'>next</a>");
 })
 app.get('/next',function(req,res){
     res.send("world sd");
