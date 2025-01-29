@@ -15,9 +15,9 @@
         
         <div class="form px-10 py-10">    
 
-            <form action="" class="flex flex-col items-center">
-                <input class="block px-5 py-2 w-1/4 bg-zinc-800 text-red-300 rounded-md" type="text" placeholder="Title Goes Here"/>
-                <textarea class="block px-5 py-2 mt-2 h-32 w-1/4 resize-none bg-zinc-800 text-blue-300 rounded-md" placeholder="write your task to perfrom"></textarea>
+            <form action="/create" method="post" class="flex flex-col items-center">
+                <input class="block px-5 py-2 w-1/4 bg-zinc-800 text-red-300 rounded-md" type="text" placeholder="Title Goes Here"  name="title"/>
+                <textarea class="block px-5 py-2 mt-2 h-32 w-1/4 resize-none bg-zinc-800 text-blue-300 rounded-md" placeholder="write your task to perfrom"  name="details"></textarea>
                 <input class="px-5 py-3 mt-3 bg-red-200 hover:bg-blue-200 rounded-lg" type="submit" value="Create" />
             
             </form>
@@ -25,27 +25,18 @@
         </div>
         
         <div class="tasks p-10 flex gap-3 items-center">
+            <% if(files.length > 0){ %>
+                <% files.forEach((val)=>{ %>
+                    <div class="task w-72 px-3 py-4 rounded-m bg-zinc-800 rounded-lg text-center">
+                        <h2 class="text-red-300 text-3xl tracking-tight">Some task here </h2>
+                        <p class="text-blue-300 py-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis dolores reiciendi.</p>
+                        <a class="text-green-200 mt-3" href="">Read More</a>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <h3 class="text-zinc-600 ">No task yet</h3>
+            <% } %>
             
-            <div class="task w-72 px-3 py-4 rounded-m bg-zinc-800 rounded-lg text-center">
-                <h2 class="text-red-300 text-3xl tracking-tight">Some task here </h2>
-                <p class="text-blue-300 py-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis dolores reiciendi.</p>
-                <a class="text-green-200 mt-3" href="">Read More</a>
-            </div>
-            
-            <div class="task w-72 px-3 py-4 rounded-m bg-zinc-800 rounded-lg text-center">
-                <h2 class="text-red-300 text-3xl tracking-tight">Some task here </h2>
-                <p class="text-blue-300 py-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis dolores reiciendi.</p>
-                <a class="text-green-200 mt-3" href="">Read More</a>
-            </div>
-            
-            <div class="task w-72 px-3 py-4 rounded-m bg-zinc-800 rounded-lg text-center">
-                <h2 class="text-red-300 text-3xl tracking-tight">Some task here </h2>
-                <p class="text-blue-300 py-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis dolores reiciendi.</p>
-                <a class="text-green-200 mt-3" href="">Read More</a>
-            </div>
-            <h3 class="text-zinc-600 ">No task yet</h3>
         </div>
-    
-        <script src="/javascripts/script.js"></script>
-</body>
+    </body>
 </html> 
