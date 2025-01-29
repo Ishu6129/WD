@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes Making</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+</head>
+<body>
+    
+    <div class="main w-full min-h-screen bg-zinc-900">
+
+        <h1 class="py-3 text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-red-300 to-purple-600 text-center shadow-lg">
+            CREATE NOTES
+        </h1>
+
+        <div class="form px-10 py-10">    
+
+            <form action="/create" method="post" class="flex flex-col items-center">
+                <input class="block px-5 py-2 min-w-[300px] bg-zinc-800 text-red-300 rounded-md" type="text" placeholder="Title Goes Here"  name="title"/>
+                <textarea class="block px-5 py-2 mt-2 h-32 min-w-[300px] resize-none bg-zinc-800 text-blue-300 rounded-md" placeholder="write your task to perfrom"  name="details"></textarea>
+                <input class="px-5 py-3 mt-5 bg-red-200 hover:bg-blue-200 rounded-lg" type="submit" value="Create" />
+            
+            </form>
+        
+        </div>
+        
+        <div class="tasks p-7 flex flex-wrap gap-3 justify-center items-center">
+
+            <% if(files.length > 0){ %>
+
+                <% files.forEach((val)=>{ %>
+                    
+                    <div class="task w-full sm:w-80 md:w-72 lg:w-1/4 px-3 py-4 rounded-lg bg-zinc-800 text-center">
+                        <h2 class="text-red-300 min-w-42 text-3xl tracking-tight"><%=val.substring(0,val.length-4);%></h2>
+                        <a class="text-green-200 mt-3" href="./file/<%=val%>">Read More</a>
+                    </div>
+
+                <% }) %>
+
+            <% } 
+            
+            else { %>
+                
+                <h3 class="text-zinc-600 ">No task yet</h3>
+            
+            <% } %>
+            
+        </div>
+    </body>
+</html> 
