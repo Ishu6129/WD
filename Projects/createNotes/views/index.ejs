@@ -21,7 +21,6 @@
                 <input class="block px-5 py-2 min-w-[300px] bg-zinc-800 text-red-300 rounded-md" type="text" placeholder="Title Goes Here"  name="title">
                 <textarea class="block px-5 py-2 mt-2 h-32 min-w-[300px] resize-none bg-zinc-800 text-blue-300 rounded-md" placeholder="write your task to perfrom"  name="details"></textarea>
                 <input class="px-5 py-3 mt-5 bg-red-200 hover:bg-blue-200 rounded-lg" type="submit" value="Create" />
-            
             </form>
         
         </div>
@@ -32,11 +31,12 @@
 
                 <% files.forEach((val)=>{ %>
                     
-                    <div class="task w-full sm:w-80 md:w-72 lg:w-1/4 px-3 py-4 rounded-lg bg-zinc-800 text-center">
-                        <h2 class="text-red-300 min-w-42 text-3xl tracking-tight"><%=val.substring(0,val.length-4);%></h2>
-                        <a class="text-green-200 mt-3" href="./file/<%=val%>">Read More</a>
+                    <div class="task w-full sm:w-80 md:w-72 lg:w-1/4 px-3 py-4 rounded-lg bg-zinc-800 text-center relative">
+                        <a href="/delete/<%= val %>" class="absolute top-2 right-3 text-red-400"><img class="h-4 w-4" src="https://cdn-icons-png.flaticon.com/512/5510/5510213.png"></a>
+                        <h2 class="text-red-300 min-w-42 text-3xl tracking-tight"><%= val.substring(0, val.length - 4) %></h2>
+                        <a class="text-green-200 mt-3" href="/file/<%= val %>">Read More</a>
+                        <a href="/edit/<%= val %>" class="absolute bottom-2 right-3 text-red-400"><img src="https://icons.veryicon.com/png/o/miscellaneous/two-color-webpage-small-icon/edit-247.png" class="h-5 w-5"></a>
                     </div>
-
                 <% }) %>
 
             <% } 
