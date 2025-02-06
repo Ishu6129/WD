@@ -1,0 +1,3 @@
+mongoose.connect --> database create
+model create     --> collection
+CREATE           --> document
