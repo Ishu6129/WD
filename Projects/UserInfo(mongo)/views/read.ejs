@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Users</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-gray-900 to-black text-white min-h-screen flex flex-col items-center p-6">
+    
+    <div class="w-full max-w-6xl flex justify-start p-4">
+        <a href="/" class="text-blue-400 hover:text-blue-500 text-lg font-semibold transition duration-300">&larr; Back</a>
+    </div>
+
+    <h1 class="py-7 text-5xl font-extrabold text-center text-white bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 drop-shadow-2xl uppercase tracking-wide">
+        All Users
+    </h1>
+
+    <!-- Centered Users List -->
+    <div class="users flex flex-wrap gap-6 justify-center w-full max-w-6xl">
+        <% if(users.length>0) { %>
+            <% users.forEach( (user) => { %>
+                <div class="user w-80 p-6 bg-gray-800 rounded-2xl shadow-lg transform transition-all hover:scale-105 flex flex-col items-center text-center">
+                    <div class="w-[272px] h-[272px] flex justify-center items-center overflow-hidden bg-gray-600 rounded-lg">
+                        <img class="w-full h-full object-cover rounded-lg" src="<%= user.image %>">
+                    </div>                                 
+                    <h3 class="text-2xl mt-4 tracking-tight text-white font-bold"><%= user.name %></h3> 
+                    <h5 class="text-gray-400"><%= user.email %></h5>
+                    <div class="flex justify-between w-full mt-7 px-3">
+                        <a class="text-blue-400 hover:text-blue-500 transition duration-300" href="/edit/<%= user._id %>">Edit</a>
+                        <a class="text-red-500 hover:text-red-600 transition duration-300" href="/delete/<%= user._id %>">Delete</a>
+                    </div>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <h1 class="text-2xl font-semibold text-center">No Users Found</h1>
+        <% } %>
+    </div>
+
+    <div class="w-full max-w-6xl flex justify-center p-4">
+        <a href="/" class="text-blue-400 hover:text-blue-500 text-lg font-semibold transition duration-300">ADD MORE</a>
+    </div>
+
+</body>
+</html>
