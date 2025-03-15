@@ -8,6 +8,7 @@ const jwt=require('jsonwebtoken') // use to generate token for user authenticati
 app.use(cookieParser()) // to use cookie parser
 
 // app.get('/',(req,res)=>{
+
 //     res.cookie('name','Ishu') // to set cookie
 //     res.send('cookie set'); // to display cookie set
 // })
@@ -20,6 +21,7 @@ app.use(cookieParser()) // to use cookie parser
 //         // 10 is the number of rounds to generate the salt
 //         bcrypt.hash("jksa1122", 10, function(err, hash) {
 //             console.log(hash);
+//             res.send("Hash printed on console")
 //         });
 // })
 // app.get('/compare',(req,res)=>{
